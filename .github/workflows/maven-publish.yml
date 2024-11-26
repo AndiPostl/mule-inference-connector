@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build_jar:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +33,11 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -Dmaven.test.skip=true -DskipTests -Djdeps.multiRelease=11
 
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+  deploy_jar:
+      runs-on: ubuntu-latest
+      needs: build_jar
+      steps:
+        - name: Publish to GitHub Packages Apache Maven
+          run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
