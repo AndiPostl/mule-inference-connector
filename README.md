@@ -1,4 +1,4 @@
-# MAC INFERENCE CONNECTOR
+# MAC INFERENCE CONNECTOR - testme
 [MAC Inference Connector Overview](https://mac-project.ai/docs/mac-inference/connector-overview)
 
 MAC Inference Connector provides access to Inference Offering for Large Language Models i.e. Groq, Hugging Face, Github Models, etc.
